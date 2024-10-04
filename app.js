@@ -6,7 +6,7 @@ const app = express ();
 app.use(express.json());
 
 // Define a route that listens to requests
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // set up the server to listen on the specified port:
 app.listen(PORT, () => {
@@ -16,12 +16,12 @@ app.listen(PORT, () => {
 app.get("/status", (request, response) => {  
     try {  
       const status = {  
-        "Status": "Running"  
+        "status": "running"  
       };  
       
       response.status(200).send(status);  
     } catch (error) {  
       console.error(error);  
-      response.status(500).send({ "Error": "Internal server error" });  
+      response.status(500).send({ "error": "internal server error" });  
     }  
 });
