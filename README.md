@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # Simple Express Server
 
 This repository contains a simple Express.js application that serves a basic health check endpoint.
@@ -12,8 +12,6 @@ This repository contains a simple Express.js application that serves a basic hea
 - [Usage](#usage)
 - [Endpoints](#endpoints)
 - [Error Handling](#error-handling)
-- [License](#license)
-- [Contributing](#contributing)
 
 ## Overview
 
@@ -79,49 +77,3 @@ The application includes basic error handling. If any unforeseen error occurs wh
   "error": "internal server error"
 }
 ```
-
-## Code
-
-Below is the code for the Express server:
-
-```javascript
-// Import Express
-const express = require('express');
-
-// Set up Express to create an app and configure it to parse requests with JSON payloads
-const app = express ();
-
-app.use(express.json());
-
-// Define a route that listens to requests
-const PORT = process.env.PORT || 3000;
-
-app.get("/status", (request, response) => {  
-    try {  
-      const status = {  
-        "status": "running"  
-      };  
-      
-      response.status(200).send(status);  
-    } catch (error) {  
-      console.error(error);  
-      response.status(500).send({ "error": "internal server error" });  
-    }  
-});
-
-// Set up the server to listen on the specified port
-app.listen(PORT, () => {
-  console.log("Server Listening on PORT:", PORT);
-});
-```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-If you would like to contribute to this project, feel free to fork the repository and submit a pull request with your changes.
-```
-
-You can replace `<repository-url>` and `<repository-folder>` with your actual details. Save this content into a file named `README.md` in your project directory.
